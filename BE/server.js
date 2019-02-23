@@ -7,7 +7,6 @@ const express = require("express");
 const app = express();
 const httpServer = http.createServer(app);
 const path = require('path');
-const api = require("./src/api");
 
 
 // utilities
@@ -16,11 +15,10 @@ const morgan = require('morgan');
 
 // middlewares setup
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'build')));
 
 
 app.get("*", (req, res, next) => {
-	res.sendFile(path.join(__dirname, 'build/index.html'));
+	res.sendFile(path.join(__dirname, '../FE/index.html'));
 });
 
 httpServer.listen(process.env.PORT || 3000, () => {
