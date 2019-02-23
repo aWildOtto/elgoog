@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 
 
 app.get("*", (req, res, next) => {
-	res.sendFile(path.join(__dirname, '../FE/index.html'));
+	res.sendFile(path.join(__dirname, '../FE/BBE.html'));
 });
 
 app.get("/photo", (req, res, next) => {
