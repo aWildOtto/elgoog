@@ -76,6 +76,11 @@
 			});
 		}
 
+		$("#inputBox").on('keyup', function (e) {
+			if (e.keyCode == 13) {
+				sendKeyword();
+			}
+		});
 
 		function showImage(addr) {
 
