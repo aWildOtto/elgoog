@@ -20,6 +20,7 @@ app.use(express.static("public"));
 
 app.get("*", (req, res, next) => {
 	res.sendFile(path.join(__dirname, '../FE/BBE.html'));
+
 });
 
 app.post("/photo", (req, res, next) => {

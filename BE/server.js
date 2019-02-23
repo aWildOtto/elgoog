@@ -15,7 +15,8 @@ const morgan = require('morgan');
 
 // middlewares setup
 app.use(morgan('dev'));
-
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", (req, res, next) => {
 	(async function example() {
@@ -28,12 +29,14 @@ app.get("/", (req, res, next) => {
 	res.sendFile(path.join(__dirname, '../FE/index.html'));
 });
 
-app.get("/search", (req, res, next) => {
+
+app.post("/search", (req, res, next) => {
 	//open browser 
 	console.log(req.body);
 
 	// call photo api
-	// return photo to client 
+	// return photo to client
+	console.log(req.body);
 });
 
 httpServer.listen(process.env.PORT || 3000, () => {
