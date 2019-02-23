@@ -22,6 +22,9 @@ app.get("*", (req, res, next) => {
 });
 
 app.get("/search", (req, res, next) => {
+	//open browser 
+	// call photo api
+	// return photo to client 
 });
 
 httpServer.listen(process.env.PORT || 3000, () => {

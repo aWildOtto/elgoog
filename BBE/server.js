@@ -16,13 +16,16 @@ const morgan = require('morgan');
 // middlewares setup
 app.use(morgan('dev'));
 
+app.use(express.static("public"));
 
 app.get("*", (req, res, next) => {
 	res.sendFile(path.join(__dirname, '../FE/BBE.html'));
 });
 
-app.get("/photo", (req, res, next) => {
-
+app.post("/photo", (req, res, next) => {
+	// open camera
+	// take a picture
+	// send back the picture 
 });
 
 httpServer.listen(process.env.PORT || 3001, () => {

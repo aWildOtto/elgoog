@@ -6,10 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>BBE</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
 	Hello this is the back back end
+	<button onclick="takePhoto()">take photo</button>
+	<img id="pictureFrame" src="/erbo.jpg">
+	<script>
+		function takePhoto() {
+			// $.post("/photo", function (data) {
+			// 	//change the #pictureFrame source to the returned url
+			// });
+		}
+	</script>
 </body>
+
 
 </html>
