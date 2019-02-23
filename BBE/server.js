@@ -21,9 +21,10 @@ app.get("*", (req, res, next) => {
 	res.sendFile(path.join(__dirname, '../FE/index.html'));
 });
 
-app.get("/search", (req, res, next) => {
+app.get("/photo", (req, res, next) => {
+
 });
 
-httpServer.listen(process.env.PORT || 3000, () => {
-	console.log('Server running at localhost:' + process.env.PORT || 3000);
+httpServer.listen(process.env.PORT || 3001, () => {
+	console.log('Server running at localhost:' + process.env.PORT);
 });
