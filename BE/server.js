@@ -7,7 +7,7 @@ const express = require("express");
 const app = express();
 const httpServer = http.createServer(app);
 const path = require('path');
-
+const { Builder, By, Key, until } = require('selenium-webdriver');
 
 // utilities
 const bodyParser = require("body-parser");
@@ -15,16 +15,28 @@ const morgan = require('morgan');
 
 // middlewares setup
 app.use(morgan('dev'));
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/", (req, res, next) => {
 
-app.get("*", (req, res, next) => {
+	console.log(req.body);
 	res.sendFile(path.join(__dirname, '../FE/index.html'));
 });
 
-app.get("/search", (req, res, next) => {
+
+app.post("/search", (req, res, next) => {
 	//open browser 
+	console.log(req.body);
+	(async function example() {
+		let driver = await new Builder().forBrowser('chrome').build();
+		await driver.get('http://www.google.com/');
+		await driver.findElement(By.name('q')).sendKeys(req.body.searchKey, Key.RETURN);
+		await driver.wait(until.titleIs('webdriver - Google Search'));
+	})();
 	// call photo api
-	// return photo to client 
+	// return photo to client
+	console.log(req.body);
 });
 
 httpServer.listen(process.env.PORT || 3000, () => {
