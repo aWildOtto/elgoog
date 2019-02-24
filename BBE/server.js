@@ -7,7 +7,7 @@ const express = require("express");
 const app = express();
 const httpServer = http.createServer(app);
 const path = require('path');
-
+const firebase = require('firebase');
 
 // utilities
 const bodyParser = require("body-parser");
@@ -18,10 +18,19 @@ app.use(morgan('dev'));
 
 app.use(express.static("./"));
 
-app.get("*", (req, res, next) => {
+app.get("/", (req, res, next) => {
 	res.sendFile(path.join(__dirname, '../FE/BBE.html'));
 
 });
+var config = {
+	apiKey: "AIzaSyABp8kvUvZQQUp0dyVemHxg3vDjPQGBVd8",
+	authDomain: "elgoog-d113f.firebaseapp.com",
+	databaseURL: "https://elgoog-d113f.firebaseio.com",
+	projectId: "elgoog-d113f",
+	storageBucket: "elgoog-d113f.appspot.com",
+	messagingSenderId: "963715031640"
+};
+firebase.initializeApp(config);
 
 app.post("/photo", (req, res, next) => {
 	// open camera
@@ -58,34 +67,25 @@ app.post("/photo", (req, res, next) => {
 
 	});
 	res.send("hello");//change to picture url later on
+	// Initialize Firebase
 
-	// fs.rename(loc + , 'newFile.txt', (err) => {
-	// 	if (err) throw err;
-	// 	console.log('Rename complete!');
+	// var storageRef = firebase.storage().ref();
+
+	// var file = new File([''], 'resultPhoto.jpg', {
+	// 	type: "image/jpg",
 	// });
-	// var file = object.GetFile(loc + "resultPhoto.jpg");
-	// loc = path.dirname("resultPhoto.jpg").split(path.sep).pop();
-	// file.Move(loc);
-	// var Webcam = NodeWebcam.create(opts);
-	//Will automatically append location output type
-	// Webcam.capture("resultPhoto", function( err, data ) {} );
-	//Also available for quick use
-	// NodeWebcam.capture( "resultPhoto", opts, function( err, data ) {
-	// });
-	//Get list of cameras
-	// Webcam.list( function( list ) {
-	// 	//Use another device
-	// 	var anotherCam = NodeWebcam.create( { device: list[ 0 ] } );
-	// });
-	//Return type with base 64 image
-	// var opts = {
-	// 	callbackReturn: "base64"
+	// // Create file metadata including the content type
+	// var metadata = {
+	// 	contentType: 'image/jpeg',
 	// };
-	// NodeWebcam.capture( "resultPhoto", opts, function( err, data ) {
-	// 	var image = "<img src='" + data + "'>";
+
+	// // Upload the file and metadata
+	// var uploadTask = storageRef.child('resultPhoto.jpg').put(file, metadata);
+	// uploadTask.then((result) => {
+	// 	console.log(result);
 	// });
 });
 
 httpServer.listen(process.env.PORT || 3001, () => {
-	console.log('Server running at localhost:' + process.env.PORT);
+	console.log('Server running at localhost:' + process.env.PORT || 3001);
 });
