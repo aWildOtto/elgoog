@@ -32,6 +32,7 @@ app.post("/search", (req, res, next) => {
 	console.log(req.body);
 	(async function example() {
 		let driver = await new Builder().forBrowser('chrome').build();
+		driver.manage().window().maximize();
 		await driver.get('http://www.google.com/');
 		await driver.findElement(By.name('q')).sendKeys(req.body.searchKey, Key.RETURN);
 		await driver.wait(until.titleIs('webdriver - Google Search'));
@@ -39,16 +40,17 @@ app.post("/search", (req, res, next) => {
 	// call photo api
 	axios.post('http://localhost:8081/photo')
 		.then(response => {
-			console.log(response.data);
+			// console.log(response.data);
+			var buff = new Buffer(response.data, 'base64');
+			fs.writeFileSync('public/resultPhoto.jpg', buff);
+			res.status(200).end();
 		})
 		.catch(error => {
 			console.log(error);
 		});
 	// return photo to client
-	console.log(req.body);
-	var buff = new Buffer(req.body, 'base64')
-	fs.writeFileSync('public/resultPhoto.jpg', buff);
-	res.end(200);
+	// console.log(req.body);
+
 });
 
 httpServer.listen(process.env.PORT || 3000, () => {

@@ -53,7 +53,7 @@
 				<div>
 					<center>
 						<div>
-							<img id = "resultPhoto" src="/doge.jpg" style="" width="272" onload="window.lol&amp;&amp;lol()" data-atf="1">
+							<img id="resultPhoto" src="/doge.jpg" style="" onload="window.lol&amp;&amp;lol()" data-atf="1">
 						</div>
 					</center>
 				</div>
@@ -68,7 +68,7 @@
 				type: "POST",
 				url: "/search",
 				data: { "searchKey": keyword },
-				success: function (result) {
+				complete: function (result) {
 					//show image
 
 					showImage(result);
@@ -83,7 +83,7 @@
 		});
 
 		function showImage(addr) {
-			$("#resultPhoto").attr("src", "resultPhoto.jpg")
+			$("#resultPhoto").attr("src", "/resultPhoto.jpg");
 		}
 
 	</script>
