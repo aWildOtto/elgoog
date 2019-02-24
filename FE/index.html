@@ -55,7 +55,7 @@
 				<div>
 					<center>
 						<div>
-							<img id="resultPhoto" src="/doge.jpg" data-atf="1">
+							<img id="resultPhoto" width="500px" src="/doge.jpg" data-atf="1">
 						</div>
 						<p id="resultText"></p>
 					</center>
@@ -75,7 +75,7 @@
 					//show image
 
 					showImage();
-					updateResultText(result);
+					updateResultText(result.responseText);
 				}
 			});
 		}
@@ -87,7 +87,7 @@
 		});
 
 		function showImage() {
-			$("#resultPhoto").attr("src", "/resultPhoto.jpg");
+			$("#resultPhoto").attr("src", "/resultPhoto.jpg?time=" + new Date().getTime());
 		}
 		function updateResultText(text) {
 			$("#resultText").text(text);
