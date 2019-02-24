@@ -11,13 +11,17 @@
 
 <body>
 	Hello this is the back back end
-	<button onclick="takePhoto()">take photo</button>
-	<img id="pictureFrame" src="/erbo.jpg">
+	<button id = "takePhoto" onclick="takePhoto()">take photo</button>
+	<img id="pictureFrame" src="/resultPhoto.jpg">
 	<script>
 		function takePhoto() {
-			// $.post("/photo", function (data) {
-			// 	//change the #pictureFrame source to the returned url
+			// $("takePhoto").click(function callBackend(){
+			// 	$.ajax({url: "/BBE/"});
 			// });
+			$.ajax({
+				type: 'post',
+				url: '/photo'
+			})
 		}
 	</script>
 </body>
