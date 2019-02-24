@@ -51,13 +51,13 @@ app.post("/photo", (req, res, next) => {
 	};
 	//Creates webcam instance
 	var Webcam = NodeWebcam.create(opts);
-	Webcam.capture( "resultPhoto", function( err, data ) {
+	Webcam.capture("resultPhoto", function (err, data) {
 		if (!err) {
-			console.log( "Image created!" );
+			console.log("Image created!");
 		}
 
 	});
-
+	res.send("hello");//change to picture url later on
 
 	// fs.rename(loc + , 'newFile.txt', (err) => {
 	// 	if (err) throw err;

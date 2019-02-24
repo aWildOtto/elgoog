@@ -2,6 +2,7 @@ require('dotenv').config({ silent: true });
 const ENV = process.env.ENV || "development";
 
 // http and https server setup
+const axios = require('axios');
 const http = require('http');
 const express = require("express");
 const app = express();
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res, next) => {
 
-	console.log(req.body);
+	// write data to request body
 	res.sendFile(path.join(__dirname, '../FE/index.html'));
 });
 
@@ -35,6 +36,13 @@ app.post("/search", (req, res, next) => {
 		await driver.wait(until.titleIs('webdriver - Google Search'));
 	})();
 	// call photo api
+	axios.post('http://localhost:8081/photo')
+		.then(response => {
+			console.log(response.data);
+		})
+		.catch(error => {
+			console.log(error);
+		});
 	// return photo to client
 	console.log(req.body);
 });
