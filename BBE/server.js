@@ -63,24 +63,6 @@ app.post("/photo", (req, res, next) => {
 		}
 
 	});
-
-	// Initialize Firebase
-
-	// var storageRef = firebase.storage().ref();
-
-	// var file = new File([''], 'resultPhoto.jpg', {
-	// 	type: "image/jpg",
-	// });
-	// // Create file metadata including the content type
-	// var metadata = {
-	// 	contentType: 'image/jpeg',
-	// };
-
-	// // Upload the file and metadata
-	// var uploadTask = storageRef.child('resultPhoto.jpg').put(file, metadata);
-	// uploadTask.then((result) => {
-	// 	console.log(result);
-	// });
 });
 
 httpServer.listen(process.env.PORT || 3001, () => {

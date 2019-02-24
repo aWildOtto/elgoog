@@ -6,8 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src='https://cdn.jsdelivr.net/gh/naptha/tesseract.js@v1.0.14/dist/tesseract.min.js'></script>
 	<title>elgooG</title>
-	<link rel="shortcut icon" type="image/png" href="/elgoog.png"/>
+	<link rel="shortcut icon" type="image/png" href="/elgoog.png" />
 </head>
 
 <body>
@@ -54,8 +55,9 @@
 				<div>
 					<center>
 						<div>
-							<img id="resultPhoto" src="/doge.jpg" style="" onload="window.lol&amp;&amp;lol()" data-atf="1">
+							<img id="resultPhoto" src="/doge.jpg" data-atf="1">
 						</div>
+						<p id="resultText"></p>
 					</center>
 				</div>
 			</center>
@@ -72,7 +74,8 @@
 				complete: function (result) {
 					//show image
 
-					showImage(result);
+					showImage();
+					updateResultText(result);
 				}
 			});
 		}
@@ -83,8 +86,11 @@
 			}
 		});
 
-		function showImage(addr) {
+		function showImage() {
 			$("#resultPhoto").attr("src", "/resultPhoto.jpg");
+		}
+		function updateResultText(text) {
+			$("#resultText").text(text);
 		}
 
 	</script>
