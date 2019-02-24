@@ -7,7 +7,10 @@ const express = require("express");
 const app = express();
 const httpServer = http.createServer(app);
 const path = require('path');
-const firebase = require('firebase');
+const fs = require("fs");
+// var firebase = require("firebase");
+
+
 
 // utilities
 const bodyParser = require("body-parser");
@@ -22,15 +25,7 @@ app.get("/", (req, res, next) => {
 	res.sendFile(path.join(__dirname, '../FE/BBE.html'));
 
 });
-var config = {
-	apiKey: "AIzaSyABp8kvUvZQQUp0dyVemHxg3vDjPQGBVd8",
-	authDomain: "elgoog-d113f.firebaseapp.com",
-	databaseURL: "https://elgoog-d113f.firebaseio.com",
-	projectId: "elgoog-d113f",
-	storageBucket: "elgoog-d113f.appspot.com",
-	messagingSenderId: "963715031640"
-};
-firebase.initializeApp(config);
+
 
 app.post("/photo", (req, res, next) => {
 	// open camera
@@ -63,10 +58,12 @@ app.post("/photo", (req, res, next) => {
 	Webcam.capture("resultPhoto", function (err, data) {
 		if (!err) {
 			console.log("Image created!");
+			var bitmap = fs.readFileSync("./resultPhoto.jpg");
+			res.send(new Buffer(bitmap).toString('base64'));//change to picture url later on
 		}
 
 	});
-	res.send("hello");//change to picture url later on
+
 	// Initialize Firebase
 
 	// var storageRef = firebase.storage().ref();

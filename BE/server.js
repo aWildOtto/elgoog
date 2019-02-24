@@ -9,6 +9,7 @@ const app = express();
 const httpServer = http.createServer(app);
 const path = require('path');
 const { Builder, By, Key, until } = require('selenium-webdriver');
+const fs = require('fs');
 
 // utilities
 const bodyParser = require("body-parser");
@@ -45,6 +46,9 @@ app.post("/search", (req, res, next) => {
 		});
 	// return photo to client
 	console.log(req.body);
+	var buff = new Buffer(req.body, 'base64')
+	fs.writeFileSync('public/resultPhoto.jpg', buff);
+	res.end(200);
 });
 
 httpServer.listen(process.env.PORT || 3000, () => {
