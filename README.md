@@ -16,3 +16,9 @@ This is the perfect opportunity to try out your favourite solution that you don'
 
 ## How it works
 The app is composed of a web front-end and two nodejs back-ends. When user searches a keyword on the front-end, back-end#1(BE1) opens up a browser with selenium and searches the same keyword on google. BE1 then sends a post request to BE2 and tell it to take a picture of back-end#1's screen (yes, for this to work, we need two laptops running the two BEs and placed face to face). BE2 sends the picture back to BE1, which processes the picture taken in https://www.onlineocr.net/ and records the result. The picture and the text extracted from the picture are both sent back to the front-end so the user can enjoy their super helpful elgooG result.
+
+## Setup
+1. Run *npm install* in both BE and BBE directory.
+2. Add .env in both BE and BBE directory and put PORT=SOMEPORT#.
+3. In BE/server.js change the url in line 40 to whereever BBE is hosted at.
+4. Run *npm start* in both BE and BBE.
