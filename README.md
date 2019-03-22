@@ -1,7 +1,8 @@
 # Elgoog: Mountain madness hackathon 2019 project
 It is a nightmare when you are lying on your bed but you want to seach some stuff on google. Now, you have a new tool to do that without using Google on your phone.
 
-# So, What is it really?
+## So, What is it really?
+This project performs an simple search task using an overcomplicated and unnecessary process.
 It is an over-complicated and completely unnecessary search app made to compete for the topic described below:
 
 ## Hackathon topic: The Rubey
@@ -9,9 +10,10 @@ Rube Goldberg machines are overcomplicated systems that perform simple functions
 
 What we hope to see from submissions for the Rubey are impressive technological accomplishments applied to silly or trivial uses. Some examples and inspiration:
 
-A magic eight-ball program that, given a query, simulates a large network and runs a distributed consensus algorithm to arrive at its answer
-the echo command line tool, but each character is printed by a new Docker container
-Shazoom—an iPhone app that builds an Android virtual machine, installs Shazam on it, and then runs Shazam on the virtual machine
+* A magic eight-ball program that, given a query, simulates a large network and runs a distributed consensus algorithm to arrive at its answer
+* The echo command line tool, but each character is printed by a new Docker container
+* Shazoom—an iPhone app that builds an Android virtual machine, installs Shazam on it, and then runs Shazam on the virtual machine
+
 This is the perfect opportunity to try out your favourite solution that you don't have a problem for! If you are competing for this prize, come up with your idea quickly and run it by the organizers to make sure it has merit.
 
 ## How it works
@@ -25,6 +27,6 @@ The app is composed of a web front-end and two nodejs back-ends. When user searc
 
 ## TODO
 1. Use OCR(**O**ptical **C**haracter **R**ecognition) to recognize text.
-* Use OpenCV to find ROI(**R**egion **o**f **I**nterest).
+* Use OpenCV to find ROI(**R**egion **O**f **I**nterest).
 * Train our own model to classify characters. Since objects are not hand written, it is easy to collect data set.
 2. Use Google Search API to send Http request to get results.
