@@ -31,7 +31,7 @@ The app is composed of a web front-end and two nodejs back-ends.
 3. In BE/server.js change the url in line 40 to whereever BBE is hosted at.
 4. Run *npm start* in both BE and BBE.
 
-## TODO
+## Todo
 1. Use OCR(**O**ptical **C**haracter **R**ecognition) to recognize text.
 * Use OpenCV to find ROI(**R**egion **O**f **I**nterest).
 * Train our own model to classify characters. Since all characters are typed, not hand written, it is easy to collect data and recognize them.
