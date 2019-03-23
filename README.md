@@ -26,10 +26,10 @@ The app is composed of a web front-end and two nodejs back-ends.
 6. Users can enjoy the super helpful elgooG result.
 
 ## Setup
-1. Run *npm install* in both BE and BBE(Backend of BE) directory.
-2. Add .env in both BE and BBE directory and put PORT=SOMEPORT#.
+1. Run ```npm install``` in both BE and BBE(Backend of BE) directory.
+2. Add .env in both BE and BBE directory and put ```PORT=SOMEPORT#```.
 3. In BE/server.js change the url in line 40 to whereever BBE is hosted at.
-4. Run *npm start* in both BE and BBE.
+4. Run ```npm start``` in both BE and BBE.
 
 ## Todo
 1. Use OCR(**O**ptical **C**haracter **R**ecognition) to recognize text.
