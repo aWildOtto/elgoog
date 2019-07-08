@@ -1,6 +1,6 @@
 # elgooG: Mountain Madness Hackathon 2019 Project
-Google chrome is a best search engine, but what if you are tired of using it and want to try something different.
-It is a nightmare when you are lying on the bed and want to do some searches. Now, you have a new tool to do that without using Google on your phone.
+Google is a best search engine, but what if you are tired of using it and want to try something different.
+Google's search result is too good to be true. Don't you want to see something worse for once? 
 
 ## So, What is it?
 It is an overcomplicated *search* app made to compete for the topic described below:
